@@ -2,8 +2,8 @@ import { useState } from 'react';
 import './App.css';
 
 function EnrolmentForm() {
-    const [firstName, setFirstName] = useState('m');
-    const [lastName, setLastName] = useState('z');
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
     const [welcomeMessage, setWelcomeMessage] = useState('');
 
     const handleSubmit = (event) => {

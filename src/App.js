@@ -1,12 +1,30 @@
+import { useState } from 'react';
 import './App.css';
 import EnrolmentForm from './EnrolmentForm';
 
 function App() {
+    const [program, setProgram] = useState('UG');
+    const handleChange = (event) => {
+        setProgram(event.target.value);
+    };
+
     return (
         <div className="App">
-            <EnrolmentForm />
+            <div className="programs">
+                <label>Choose Program:</label>
+                <select
+                    className="appDropDowns"
+                    onChange={handleChange}
+                    value={program}
+                >
+                    <option value="UG">Undergraduate</option>
+                    <option value="PG">Postgraduate</option>
+                </select>
+            </div>
+            <EnrolmentForm chosenProgram={program} />
+
+            <label>{program}</label>
         </div>
     );
 }
-
 export default App;
