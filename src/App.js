@@ -22,8 +22,6 @@ function App() {
                 </select>
             </div>
             <EnrolmentForm chosenProgram={program} />
-
-            <label>{program}</label>
         </div>
     );
 }

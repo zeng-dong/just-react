@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 
-function EnrolmentForm() {
+function EnrolmentForm(props) {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [welcomeMessage, setWelcomeMessage] = useState('');
@@ -14,7 +14,7 @@ function EnrolmentForm() {
     return (
         <div>
             <form className="enrolForm" onSubmit={handleSubmit}>
-                <h1>Student Details</h1>
+                <h1>{props.chosenProgram} Student Details</h1>
                 <label>First name:</label>
                 <input
                     type="text"
