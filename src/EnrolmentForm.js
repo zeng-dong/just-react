@@ -8,6 +8,7 @@ function EnrolmentForm(props) {
 
     const handleSubmit = (event) => {
         setWelcomeMessage(`Welcome ${firstName} ${lastName}`);
+        props.setUpdatedSeats(props.currentSeats - 1);
         event.preventDefault();
     };
 
