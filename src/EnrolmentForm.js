@@ -6,6 +6,7 @@ const EnrolmentForm = (props) => {
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [welcomeMessage, setWelcomeMessage] = useState('');
+
     const handleClick = (event) => {
         handleInputReset('', '', '');
         setWelcomeMessage(
@@ -14,16 +15,17 @@ const EnrolmentForm = (props) => {
         props.setUpdatedSeats(props.currentSeats - 1);
         event.preventDefault();
     };
-    //change of input value set method
+
     const handleInputChange = (setInput, event) => {
         setInput(event.target.value);
     };
-    //set input fields
+
     const handleInputReset = (fname, lname, email) => {
         setFirstName(fname);
         setLastName(lname);
         setEmail(email);
     };
+
     return (
         <div>
             <div className="enrolContainer">
