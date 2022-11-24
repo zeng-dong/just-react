@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import EnrolmentForm from './EnrolmentForm';
+import EnrolList from './EnrolList';
 
 const App = () => {
     const [program, setProgram] = useState('UG');
@@ -55,6 +56,8 @@ const App = () => {
                 setUpdatedSeats={setUpdatedSeats}
                 currentSeats={program === 'UG' ? ugSeats : pgSeats}
             />
+
+            <EnrolList />
         </div>
     );
 };
