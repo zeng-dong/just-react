@@ -7,6 +7,7 @@ const App = () => {
     const [program, setProgram] = useState('UG');
     const [ugSeats, setUgSeats] = useState(60);
     const [pgSeats, setPgSeats] = useState(40);
+    const [studentDetails, setStudentDetails] = useState({});
 
     const handleChange = (event) => {
         setProgram(event.target.value);
@@ -55,6 +56,7 @@ const App = () => {
                 chosenProgram={program}
                 setUpdatedSeats={setUpdatedSeats}
                 currentSeats={program === 'UG' ? ugSeats : pgSeats}
+                setStudentDetails={setStudentDetails}
             />
 
             <EnrolList />
