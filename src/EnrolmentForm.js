@@ -9,10 +9,19 @@ const EnrolmentForm = (props) => {
 
     const handleClick = (event) => {
         handleInputReset('', '', '');
-        setWelcomeMessage(
-            `${firstName} ${lastName} enrolled. Email sent to - ${email}`
-        );
+
         props.setUpdatedSeats(props.currentSeats - 1);
+
+        const randomKey = Math.floor(1000 + Math.random() * 9000);
+        let id = randomKey;
+        props.setStudentDetails({
+            key: id,
+            fname: firstName,
+            lname: lastName,
+            program: props.chosenProgram,
+            email: email
+        });
+
         event.preventDefault();
     };
 
@@ -82,12 +91,6 @@ const EnrolmentForm = (props) => {
                                 value="Enrol"
                                 onClick={handleClick}
                             />
-                        </li>
-                        <li>
-                            {' '}
-                            <label id="studentMsg" className="message">
-                                {welcomeMessage}
-                            </label>
                         </li>
                     </ul>
                 </form>
