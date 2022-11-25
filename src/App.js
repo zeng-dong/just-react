@@ -59,7 +59,10 @@ const App = () => {
                 setStudentDetails={setStudentDetails}
             />
 
-            <EnrolList />
+            <EnrolList
+                studentDetails={studentDetails}
+                setStudentDetails={setStudentDetails}
+            />
         </div>
     );
 };
