@@ -5,7 +5,6 @@ const EnrolmentForm = (props) => {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
-    const [welcomeMessage, setWelcomeMessage] = useState('');
 
     const handleClick = (event) => {
         handleInputReset('', '', '');

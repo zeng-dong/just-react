@@ -1,5 +1,6 @@
 import './EnrolList.css';
 import { DetailsList } from '@fluentui/react/lib/DetailsList';
+import { useEffect } from 'react';
 
 const columns = [
     {
@@ -47,7 +48,15 @@ for (let i = 1; i < 5; i++) {
     });
 }
 
-const EnrolList = () => {
+const EnrolList = (props) => {
+    useEffect(() => {
+        const curItemKey = props.studentDetails.key;
+        if (curItemKey) {
+            items = [...items, props.studentDetails];
+            props.setStudentDetails({});
+        }
+    }, [props]);
+
     return (
         <div className="enrolList">
             <DetailsList items={items} columns={columns} />
