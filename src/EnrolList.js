@@ -38,15 +38,6 @@ const columns = [
 ];
 
 let items = [];
-for (let i = 1; i < 5; i++) {
-    items.push({
-        key: i,
-        fname: 'FirstName ' + i,
-        lname: 'LastName ' + i,
-        program: 'UG',
-        email: 'Email ' + i
-    });
-}
 
 const EnrolList = (props) => {
     useEffect(() => {
