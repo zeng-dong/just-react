@@ -4,6 +4,14 @@ import { useEffect } from 'react';
 
 const columns = [
     {
+        key: 'edit',
+        name: 'Edit',
+        fieldName: 'edit',
+        minWidth: 30,
+        maxWidth: 200,
+        isResizable: true
+    },
+    {
         key: 'fname',
         name: 'First Name',
         fieldName: 'fname',
@@ -32,6 +40,14 @@ const columns = [
         name: 'Email',
         fieldName: 'email',
         minWidth: 130,
+        maxWidth: 200,
+        isResizable: true
+    },
+    {
+        key: 'delete',
+        name: 'Delete',
+        fieldName: 'delete',
+        minWidth: 50,
         maxWidth: 200,
         isResizable: true
     }

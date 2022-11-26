@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './App.css';
+import { MdEdit, MdDelete } from 'react-icons/md';
 
 const EnrolmentForm = (props) => {
     const [firstName, setFirstName] = useState('');
@@ -18,7 +19,9 @@ const EnrolmentForm = (props) => {
             fname: firstName,
             lname: lastName,
             program: props.chosenProgram,
-            email: email
+            email: email,
+            edit: <MdEdit />,
+            delete: <MdDelete />
         });
 
         event.preventDefault();
