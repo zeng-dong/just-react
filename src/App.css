@@ -99,3 +99,8 @@
 div[role='checkbox'] {
     display: none;
 }
+.actionIcon {
+    font-size: 16px;
+    color: rgb(77, 133, 141);
+    cursor: pointer;
+}

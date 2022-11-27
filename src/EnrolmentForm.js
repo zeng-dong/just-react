@@ -20,8 +20,15 @@ const EnrolmentForm = (props) => {
             lname: lastName,
             program: props.chosenProgram,
             email: email,
-            edit: <MdEdit />,
-            delete: <MdDelete />
+            edit: <MdEdit className="actionIcon" />,
+            delete: (
+                <MdDelete
+                    className="actionIcon"
+                    onClick={() => {
+                        props.handleItemSelection('delete', id);
+                    }}
+                />
+            )
         });
 
         event.preventDefault();
