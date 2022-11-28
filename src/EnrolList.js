@@ -62,6 +62,16 @@ const EnrolList = (props) => {
             items = [...items, props.studentDetails];
             props.setStudentDetails({});
         }
+
+        if (props.action === 'delete') {
+            const deleteItem = items.filter(
+                (i) => i.key === props.selectedItemId
+            )[0];
+
+            items = items.filter((i) => i !== deleteItem);
+
+            props.restoreSeats(deleteItem.program);
+        }
     }, [props]);
 
     return (
