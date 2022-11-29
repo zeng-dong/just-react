@@ -7,7 +7,7 @@ const EnrolmentForm = (props) => {
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [btnValue, setBtnValue] = useState('Enrol');
-    const [studentId, setStudentId] = useState('0');
+    const [studentId, setStudentId] = useState(0);
 
     const handleEdit = (stId) => {
         handleInputReset(firstName, lastName, email);
@@ -118,7 +118,7 @@ const EnrolmentForm = (props) => {
                                 name="Enrol"
                                 className="btn"
                                 alt="Enrol"
-                                value="{btnValue}"
+                                value={btnValue}
                                 onClick={handleClick}
                             />
                             <input
