@@ -6,6 +6,14 @@ const EnrolmentForm = (props) => {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
+    const [btnValue, setBtnValue] = useState('Enrol');
+    const [studentId, setStudentId] = useState('0');
+
+    const handleEdit = (stId) => {
+        handleInputReset(firstName, lastName, email);
+        setStudentId(stId);
+        setBtnValue('Update');
+    };
 
     const handleClick = (event) => {
         handleInputReset('', '', '');
@@ -14,13 +22,17 @@ const EnrolmentForm = (props) => {
 
         const randomKey = Math.floor(1000 + Math.random() * 9000);
         let id = randomKey;
+        id = btnValue === 'enrol' ? randomKey : studentId;
+
         props.setStudentDetails({
             key: id,
             fname: firstName,
             lname: lastName,
             program: props.chosenProgram,
             email: email,
-            edit: <MdEdit className="actionIcon" />,
+            edit: (
+                <MdEdit className="actionIcon" onClick={() => handleEdit(id)} />
+            ),
             delete: (
                 <MdDelete
                     className="actionIcon"
@@ -31,6 +43,7 @@ const EnrolmentForm = (props) => {
             )
         });
 
+        setBtnValue('Enrol');
         event.preventDefault();
     };
 
