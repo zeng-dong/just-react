@@ -15,6 +15,12 @@ const EnrolmentForm = (props) => {
         setBtnValue('Update');
     };
 
+    const handleClickCancel = (event) => {
+        handleInputReset('', '', '');
+        setBtnValue('Enrol');
+        event.preventDefault();
+    };
+
     const handleClick = (event) => {
         handleInputReset('', '', '');
 
@@ -22,6 +28,7 @@ const EnrolmentForm = (props) => {
 
         const randomKey = Math.floor(1000 + Math.random() * 9000);
         let id = randomKey;
+        setStudentId(randomKey);
         id = btnValue === 'enrol' ? randomKey : studentId;
 
         props.setStudentDetails({
@@ -109,9 +116,19 @@ const EnrolmentForm = (props) => {
                                 type="submit"
                                 id="btnEnrol"
                                 name="Enrol"
+                                className="btn"
                                 alt="Enrol"
-                                value="Enrol"
+                                value="{btnValue}"
                                 onClick={handleClick}
+                            />
+                            <input
+                                type="submit"
+                                id="btnCancel"
+                                name="Cancel"
+                                className="btn"
+                                alt="Cancel"
+                                value="Cancel"
+                                onClick={handleClickCancel}
                             />
                         </li>
                     </ul>
