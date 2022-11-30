@@ -57,22 +57,29 @@ let items = [];
 
 const EnrolList = (props) => {
     useEffect(() => {
-        const curItemKey = props.studentDetails.key;
-        if (curItemKey) {
-            items = [...items, props.studentDetails];
-            props.setStudentDetails({});
-        }
-
         if (props.action === 'delete') {
             const deleteItem = items.filter(
                 (i) => i.key === props.selectedItemId
             )[0];
 
-            items = items.filter((i) => i !== deleteItem);
-
             props.restoreSeats(deleteItem.program);
+
+            items = items.filter((i) => i !== deleteItem);
         }
-    }, [props]);
+
+        const curItemKey = props.studentDetails.key;
+        if (curItemKey) {
+            const i = items.findIndex((i) => i.key === curItemKey);
+            if (i > -1) {
+                items = items.map((i) =>
+                    i.key === curItemKey ? props.studentDetails : i
+                );
+            } else {
+                items = [...items, props.studentDetails];
+            }
+            props.setStudentDetails({});
+        }
+    });
 
     return (
         <div className="enrolList">
