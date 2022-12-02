@@ -17,8 +17,13 @@ const App = () => {
 
     const handleChange = (event) => {
         setProgram(event.target.value);
-        setPgSeats(pgSeats);
-        setUgSeats(ugSeats);
+        setIsUGChecked(!isUGChecked);
+        if (isRestoreSeats) {
+            event.target.value === 'UG'
+                ? setPgSeats(pgSeats + 1)
+                : setUgSeats(ugSeats + 1);
+            setIsRestoreSeats(false);
+        }
     };
 
     const handleItemSelection = (action, id) => {
@@ -37,6 +42,12 @@ const App = () => {
         } else {
             setPgSeats(updatedSeats);
         }
+    };
+
+    const setSelectedProgram = (s) => {
+        s === 'UG' ? setIsUGChecked(true) : setIsUGChecked(false);
+        setProgram(s);
+        setIsRestoreSeats(true);
     };
 
     return (
@@ -75,6 +86,7 @@ const App = () => {
                 currentSeats={program === 'UG' ? ugSeats : pgSeats}
                 setStudentDetails={setStudentDetails}
                 handleItemSelection={handleItemSelection}
+                setSelectedProgram={setSelectedProgram}
             />
 
             <EnrolList
