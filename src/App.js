@@ -12,6 +12,9 @@ const App = () => {
     const [action, setAction] = useState();
     const [selItemId, setSelItemId] = useState();
 
+    const [isUGChecked, setIsUGChecked] = useState(true);
+    const [isRestoreSeats, setIsRestoreSeats] = useState(false);
+
     const handleChange = (event) => {
         setProgram(event.target.value);
         setPgSeats(pgSeats);
@@ -46,7 +49,7 @@ const App = () => {
                             type="radio"
                             value="UG"
                             name="programGroup"
-                            defaultChecked
+                            checked={isUGChecked}
                         />
                         Undergraduate
                         <input
@@ -54,6 +57,7 @@ const App = () => {
                             value="PG"
                             name="programGroup"
                             className="radioSel"
+                            checked={!isUGChecked}
                         />
                         Postgraduate
                     </li>
